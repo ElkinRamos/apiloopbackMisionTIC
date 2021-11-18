@@ -19,13 +19,16 @@ import {
 } from '@loopback/rest';
 import {Estacion} from '../models';
 import {EstacionRepository} from '../repositories';
+import {authenticate} from '@loopback/authentication';
 
+@authenticate("admin")
 export class EstacionController {
   constructor(
     @repository(EstacionRepository)
     public estacionRepository : EstacionRepository,
   ) {}
 
+  @authenticate.skip()
   @post('/estaciones')
   @response(200, {
     description: 'Estacion model instance',
