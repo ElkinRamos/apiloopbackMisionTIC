@@ -26,7 +26,7 @@ import axios from 'axios';
 import {Credenciales} from '../models';
 import {authenticate} from '@loopback/authentication';
 
-@authenticate("admin")
+@authenticate("admin")//permite el acceso para el token los demas estan protegidos
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -35,7 +35,7 @@ export class UsuarioController {
     public servicioAuth: AuthService
   ) { }
 
-  @authenticate.skip()
+  @authenticate.skip()//autentica el post acceso para el token
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -188,7 +188,7 @@ export class UsuarioController {
   }
 
   //Servicio de login
-  @authenticate.skip()
+  @authenticate.skip()//autentica el acceso post para el token
   @post('/login', {
     responses: {
       '200': {

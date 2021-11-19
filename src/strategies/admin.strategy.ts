@@ -6,7 +6,7 @@ import parseBearerToken from 'parse-bearer-token';
 import {AuthService} from '../services';
 
 export class AdministradorStrategy implements AuthenticationStrategy {
-  name: string = 'admin';//name se modifica segun el rol y estrategia para dar los permisos
+  name: string = 'admin';//name se modifica segun el rol y estrategia para dar los permisos esto se deb hacer segun los atributos que se vayan a dar a cada usuario otra ++++.strategy.ts
 
   constructor(
     @service(AuthService)
